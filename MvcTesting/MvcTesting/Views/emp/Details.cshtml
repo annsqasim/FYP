@@ -1,0 +1,43 @@
+﻿@model MvcTesting.Models.Emp
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Emp</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.E_ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E_ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.E_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.E_Desg)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E_Desg)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dept.Dept_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dept.Dept_Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.E_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

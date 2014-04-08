@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MvcTesting.Models.activity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.A_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp.E_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Input)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp1.E_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Process.Process_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Check_In)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Check_Out)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Due_Date)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.A_ID)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Emp.E_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Input)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Decision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp1.E_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Process.Process_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Check_In)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Check_Out)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Due_Date)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.A_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.A_ID }) |
+            @Html.ActionLink("Delete", "Delete", new {id=item.A_ID })
+        </td>
+        
+    </tr>
+}
+    <tr><td><input type="submit" value="Save Workflow" /></td></tr>
+    @for (int i = 0; i < 3 ; i++)
+    {
+        @Html.Label("chal gaya");
+    }
+</table>

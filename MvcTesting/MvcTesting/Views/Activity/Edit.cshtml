@@ -1,0 +1,108 @@
+﻿@model MvcTesting.Models.activity
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>activity</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.A_ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.A_ID)
+            @Html.ValidationMessageFor(model => model.A_ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.review)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.review)
+            @Html.ValidationMessageFor(model => model.review)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Input)
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Decision)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Decision)
+            @Html.ValidationMessageFor(model => model.Decision)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.next_state, "Emp1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("next_state", String.Empty)
+            @Html.ValidationMessageFor(model => model.next_state)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Process_ID, "Process")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Process_ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.Process_ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Check_In)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Check_In)
+            @Html.ValidationMessageFor(model => model.Check_In)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Check_Out)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Check_Out)
+            @Html.ValidationMessageFor(model => model.Check_Out)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Due_Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Due_Date)
+            @Html.ValidationMessageFor(model => model.Due_Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_ID, "Emp")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("E_ID", String.Empty)
+            @Html.ValidationMessageFor(model => model.E_ID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

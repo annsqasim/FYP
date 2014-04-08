@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCTestingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MVCTestingModelStoreContainer">
+    <EntitySet Name="Depts" EntityType="MVCTestingModel.Store.Depts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Emps" EntityType="MVCTestingModel.Store.Emps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="MVCTestingModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="activities" EntityType="MVCTestingModel.Store.activities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Processes" EntityType="MVCTestingModel.Store.Processes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="forms" EntityType="MVCTestingModel.Store.forms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProfiles" EntityType="MVCTestingModel.Store.UserProfiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Membership" EntityType="MVCTestingModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="MVCTestingModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Roles" EntityType="MVCTestingModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="MVCTestingModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Emp_Dept" Association="MVCTestingModel.Store.FK_Emp_Dept">
+      <End Role="Dept" EntitySet="Depts" />
+      <End Role="Emp" EntitySet="Emps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_activity_Emp1" Association="MVCTestingModel.Store.FK_activity_Emp1">
+      <End Role="Emp" EntitySet="Emps" />
+      <End Role="activity" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_activity_Process" Association="MVCTestingModel.Store.FK_activity_Process">
+      <End Role="Process" EntitySet="Processes" />
+      <End Role="activity" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_activity_Emp" Association="MVCTestingModel.Store.FK_activity_Emp">
+      <End Role="Emp" EntitySet="Emps" />
+      <End Role="activity" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="MVCTestingModel.Store.FK_webpages_UsersInRoles_webpages_Roles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_webpages_UsersInRoles_UserProfile" Association="MVCTestingModel.Store.FK_webpages_UsersInRoles_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Depts">
+    <Key>
+      <PropertyRef Name="Dept_ID" />
+    </Key>
+    <Property Name="Dept_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dept_Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Emps">
+    <Key>
+      <PropertyRef Name="E_ID" />
+    </Key>
+    <Property Name="E_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E_Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="E_Desg" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Dept_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="A_ID" />
+    </Key>
+    <Property Name="A_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="review" Type="bit" Nullable="false" />
+    <Property Name="Input" Type="bit" Nullable="false" />
+    <Property Name="Decision" Type="bit" Nullable="false" />
+    <Property Name="next_state" Type="int" Nullable="false" />
+    <Property Name="Process_ID" Type="int" Nullable="false" />
+    <Property Name="Check_In" Type="datetime" Nullable="true" />
+    <Property Name="Check_Out" Type="datetime" Nullable="true" />
+    <Property Name="Due_Date" Type="datetime" Nullable="true" />
+    <Property Name="E_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Processes">
+    <Key>
+      <PropertyRef Name="Process_ID" />
+    </Key>
+    <Property Name="Process_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Process_Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="forms">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserProfiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="ConfirmationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" Nullable="true" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" Nullable="true" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordChangedDate" Type="datetime" Nullable="true" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="webpages_Roles_RoleId" />
+      <PropertyRef Name="UserProfiles_UserId" />
+    </Key>
+    <Property Name="webpages_Roles_RoleId" Type="int" Nullable="false" />
+    <Property Name="UserProfiles_UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Emp_Dept">
+    <End Role="Dept" Type="MVCTestingModel.Store.Depts" Multiplicity="1" />
+    <End Role="Emp" Type="MVCTestingModel.Store.Emps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dept">
+        <PropertyRef Name="Dept_ID" />
+      </Principal>
+      <Dependent Role="Emp">
+        <PropertyRef Name="Dept_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_activity_Emp1">
+    <End Role="Emp" Type="MVCTestingModel.Store.Emps" Multiplicity="1" />
+    <End Role="activity" Type="MVCTestingModel.Store.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="activity">
+        <PropertyRef Name="next_state" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_activity_Process">
+    <End Role="Process" Type="MVCTestingModel.Store.Processes" Multiplicity="1" />
+    <End Role="activity" Type="MVCTestingModel.Store.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Process">
+        <PropertyRef Name="Process_ID" />
+      </Principal>
+      <Dependent Role="activity">
+        <PropertyRef Name="Process_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_activity_Emp">
+    <End Role="Emp" Type="MVCTestingModel.Store.Emps" Multiplicity="1" />
+    <End Role="activity" Type="MVCTestingModel.Store.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp">
+        <PropertyRef Name="E_ID" />
+      </Principal>
+      <Dependent Role="activity">
+        <PropertyRef Name="E_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_webpages_UsersInRoles_webpages_Roles">
+    <End Role="webpages_Roles" Type="MVCTestingModel.Store.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="MVCTestingModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="webpages_Roles_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_webpages_UsersInRoles_UserProfile">
+    <End Role="webpages_UsersInRoles" Type="MVCTestingModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <End Role="UserProfile" Type="MVCTestingModel.Store.UserProfiles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserProfiles_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

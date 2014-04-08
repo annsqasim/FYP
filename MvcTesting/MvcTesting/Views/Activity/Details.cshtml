@@ -1,0 +1,85 @@
+﻿@model MvcTesting.Models.activity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>activity</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.A_ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.A_ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.review)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.review)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Input)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Input)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Decision)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Decision)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Emp1.E_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Emp1.E_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Process.Process_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Process.Process_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Check_In)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Check_In)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Check_Out)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Check_Out)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Due_Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Due_Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Emp.E_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Emp.E_Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id=Model.A_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "Requistion_Authorization";
+}
+
+<style>
+    textarea{
+        width:50%;
+}
+    </style>
+<h2>Requistion & Authorization Form</h2>
+
+ 
+    <div class="col-6 col-sm-6">
+    <table class="table table-striped">
+        
+    <tr>
+        <th>Employee Details</th>
+        <td></td>
+        
+       </tr>
+       
+    <tr>
+    <td class="style1">
+        <label ID="Name" runat="server"  style="text-align: center">Name</label></td>
+      <td>  <input type="text" class="form-control" ID="TextBox1" runat="server"/></td>
+    </tr>
+
+    <tr>
+     <td class="style1">  <label ID="Dsg" runat="server" >Designation</label></td> 
+      <td>  <input type="text" class="form-control" ID="TextBox2" runat="server" /></td> 
+    </tr>    
+
+   <tr>
+    <td class="style1">   <label ID="Dept" runat="server" >Department</label></td> 
+       <td> <input type="text" class="form-control" ID="TextBox3" runat="server" /></td>
+    </tr>
+
+    <tr>
+      <td class="style1">  <label ID="Station" runat="server" >Station</label></td>
+       <td> <input type="text" class="form-control" ID="TextBox4" runat="server" /></td>
+    </tr>
+
+    <tr>
+       <td class="style1"> <label ID="Email" runat="server" >Email</label></td>
+        <td><input type="text" class="form-control" ID="TextBox5" runat="server" /></td>
+        </tr>
+
+        <tr>
+       <td class="style1"> <label ID="Phn" runat="server" >Phone No.</label></td>
+        <td><input type="text" class="form-control" ID="TextBox6" runat="server" /></td>
+        </tr>
+
+        
+         <tr>
+             <th>Employee Details</th>
+             <td></td>
+
+         </tr>
+
+        <tr>
+        <td class="style1">
+            <label ID="Authorized" runat="server" >Authorization Type:</label></td>
+            <td>
+                <input type="checkbox" ID="CheckBox1" runat="server" />Grant
+                <input type="checkbox" ID="CheckBox2" runat="server" />Revoke<br />
+                </td>
+        </tr>
+
+        <tr>
+        <td class="style1">
+            <label ID="Req" runat="server" >Basis Of Requirement:</label></td>
+            <td>
+                <input type="checkbox" ID="CheckBox3" runat="server" />Permanent
+                <input type="checkbox" ID="CheckBox4" runat="server" />Temporary<br />
+                </td>
+            </tr>
+        <tr>
+                <td> <label ID="From" runat="server">From date/time</label></td>
+                <td><input type="datetime"class="form-control"  ID="TextBox7" runat="server"  /></td>
+            </tr>
+        <tr>
+               
+                 <td> <label ID="To" runat="server">To date/time</label></td>
+                 <td><input type="datetime" class="form-control" ID="TextBox8" runat="server"  /></td>
+        </tr>
+             
+   <tr>
+        <td class="style1">
+            <label ID="Priority" runat="server" >Priority</label></td>
+            <td>
+                <input type="checkbox" ID="CheckBox5" runat="server" />Normal
+                <input type="checkbox" ID="CheckBox6" runat="server" />Urgent<br />
+                </td>
+        </tr>
+
+<tr>
+       <td class="style1"> <label ID="ReqDetails" runat="server" >Requirements Details</label></td>
+       <td> <textarea ID="TextBox9"class="form-control" runat="server"
+               Height="70px" ></textarea></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="justification" runat="server" >Business Justification</label></td>
+       <td> <textarea ID="TextBox10"class="form-control"  runat="server"></textarea></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="Comments" runat="server" >HOD Comments(if any)</label></td>
+        <td><textarea ID="TextBox11" class="form-control" runat="server" Height="69px"></textarea></td>
+        </tr>
+
+        <tr><th>For IT/ISM use only</th>
+            <td></td>
+        </tr>
+        <tr>
+        <td class="style1">
+            <label ID="ReqJustified" runat="server" >Is the requirements justified:</label></td>
+            <td>
+                <input type="radio" ID="CheckBox7" runat="server"  name="select"/>Yes
+                <input type="radio" ID="CheckBox8" runat="server" name="select" />No<br />
+                </td>
+        </tr>
+
+        <tr>
+        <td class="style1">
+            <label ID="Approval" runat="server" >Does it require Sr. Management Approval:</label></td>
+            <td>
+                <input type="radio" ID="CheckBox9" runat="server"  name="select"/>Yes
+                <input type="radio" ID="CheckBox10" runat="server" name="select" />No<br />
+                </td>
+        </tr>
+        <tr>
+        <td class="style1">
+            <label ID="Reasons" runat="server" >Reasons if not justified:</label></td>
+            <td>
+                <input type="text" ID="TextBox13"class="form-control"  runat="server"  Height="70px" /></td>
+        </tr>
+
+        <tr>
+        <td class="style1">
+            <label ID="RequestID" runat="server" >IT Request ID</label></td>
+            <td>
+                <input type="text" ID="TextBox14"class="form-control"  runat="server" /></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="Compeletion" runat="server" >Task completion date:</label></td>
+        <td><input type="date" ID="TextBox15"class="form-control"  runat="server"  /></td>
+        </tr>
+     </table>  
+     
+       
+        <br /><br />     
+        
+        
+                  <input type="button" class="btn btn-info" id="Button1" runat="server" value="Sumbit" />
+
+    </div>

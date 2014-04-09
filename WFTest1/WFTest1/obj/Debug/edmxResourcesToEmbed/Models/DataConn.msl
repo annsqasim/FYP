@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WFTest1ModelStoreContainer" CdmEntityContainer="WFTest1Entities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="WFTest1Model.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+          <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

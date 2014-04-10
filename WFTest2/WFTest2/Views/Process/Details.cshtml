@@ -1,0 +1,36 @@
+﻿@model WFTest2.Models.Process
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Process</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Process_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Process_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Form.Form_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Form.Form_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Proces_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Proces_Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

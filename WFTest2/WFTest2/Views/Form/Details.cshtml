@@ -1,0 +1,29 @@
+﻿@model WFTest2.Models.Form
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Form</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Form_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Form_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Form_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Form_Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

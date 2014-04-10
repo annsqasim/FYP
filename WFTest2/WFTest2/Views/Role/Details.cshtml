@@ -1,0 +1,29 @@
+﻿@model WFTest2.Models.Role
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Role</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Role_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Role_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role_Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

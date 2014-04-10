@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90f53ec46cb14469864dca4264187c07" Name="Diagram1">
+        <EntityTypeShape EntityType="WFTestingModel.Activity" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WFTestingModel.Field" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WFTestingModel.Form" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WFTestingModel.Process" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WFTestingModel.Role" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WFTestingModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="WFTestingModel.FK_Activity_Process" ManuallyRouted="false" />
+        <AssociationConnector Association="WFTestingModel.FK_Field_Form" ManuallyRouted="false" />
+        <AssociationConnector Association="WFTestingModel.FK_Field_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="WFTestingModel.FK_Process_Form" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

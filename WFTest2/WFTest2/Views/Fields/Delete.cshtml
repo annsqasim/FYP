@@ -1,0 +1,54 @@
+﻿@model WFTest2.Models.Field
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Field</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Field_Id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Field_Id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Form.Form_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Form.Form_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Role.Role_Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Role.Role_Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Labels)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Labels)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fields)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fields)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

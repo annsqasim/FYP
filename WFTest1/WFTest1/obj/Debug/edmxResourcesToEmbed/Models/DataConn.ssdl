@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="WFTest1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+<Schema Namespace="WFTest1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="WFTest1ModelStoreContainer">
-    <EntitySet Name="Department" EntityType="WFTest1Model.Store.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="WFTest1Model.Store.Departments" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
-  <EntityType Name="Department">
+  <EntityType Name="Departments">
     <Key>
       <PropertyRef Name="Dept_ID" />
     </Key>
-    <Property Name="Dept_ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="Dept_Name" MaxLength="25" Type="varchar" />
+    <Property Name="Dept_ID" Type="int" Nullable="false" />
+    <Property Name="Dept_Name" Type="varchar" Nullable="true" MaxLength="25" />
   </EntityType>
 </Schema>

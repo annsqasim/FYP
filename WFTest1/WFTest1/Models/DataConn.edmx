@@ -4,18 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="WFTest1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
-        <EntityContainer Name="WFTest1ModelStoreContainer">
-          <EntitySet Name="Department" EntityType="WFTest1Model.Store.Department" Schema="dbo" store:Type="Tables" />
-          </EntityContainer>
-        <EntityType Name="Department">
-          <Key>
-            <PropertyRef Name="Dept_ID" />
-          </Key>
-          <Property Name="Dept_ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="Dept_Name" MaxLength="25" Type="varchar" />
-        </EntityType>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="WFTest1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WFTest1ModelStoreContainer">
+    <EntitySet Name="Departments" EntityType="WFTest1Model.Store.Departments" store:Type="Tables" Schema="dbo" />
+    </EntityContainer>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Dept_ID" />
+    </Key>
+    <Property Name="Dept_ID" Type="int" Nullable="false" />
+    <Property Name="Dept_Name" Type="varchar" Nullable="true" MaxLength="25" />
+  </EntityType>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WFTest1Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,19 +33,18 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WFTest1ModelStoreContainer" CdmEntityContainer="WFTest1Entities">
-          <EntitySetMapping Name="Departments">
-            <EntityTypeMapping TypeName="WFTest1Model.Department">
-              <MappingFragment StoreEntitySet="Department">
-                <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
-                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WFTest1ModelStoreContainer" CdmEntityContainer="WFTest1Entities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(WFTest1Model.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Dept_ID" ColumnName="Dept_ID" />
+          <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">

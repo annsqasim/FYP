@@ -15,15 +15,14 @@
     </head>
     <body>
 
-                        @Html.Partial("Menu")
-        
+                   
                    
                 @RenderBody()
            
-         @Html.Partial("Footer")
+        
 
         @Scripts.Render("~/bundles/jquery")
-                @Scripts.Render("~/Scripts/script")
+        @Scripts.Render("~/Scripts/script")
         @RenderSection("scripts", required: false)
     </body>
 </html>

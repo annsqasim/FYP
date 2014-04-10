@@ -184,6 +184,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\DeptController.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -290,6 +291,7 @@
     <Content Include="Models\DataConn.edmx.diagram">
       <DependentUpon>DataConn.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\DataConn.edmx.sql" />
     <Content Include="Models\DataConn.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DataConn.edmx</DependentUpon>
@@ -373,6 +375,7 @@
     <Content Include="Views\Forms\Monitoring.cshtml" />
     <Content Include="Views\Forms\Requistion_Authorization.cshtml" />
     <Content Include="Views\Forms\RMR.cshtml" />
+    <Content Include="Views\Activity\Activity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,7 +37,15 @@ namespace WFTest1.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+
+                if (model.UserName == "Admin")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("UserIndex", "Home");
+                }
             }
 
             // If we got this far, something failed, redisplay form
@@ -81,7 +89,15 @@ namespace WFTest1.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    if (model.UserName == "Admin")
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    else
+                    {
+                        return RedirectToAction("UserIndex", "Home");
+                    }
                 }
                 catch (MembershipCreateUserException e)
                 {

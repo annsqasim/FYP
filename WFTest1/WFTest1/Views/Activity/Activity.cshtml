@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Activity";
+}
+@Html.Partial("Menu")
+
+<h2>Activity</h2>
+
+
+@*@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    *@<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+      
+    
+    
+    <div id="dynamictable">
+    <button  class="btn btn-info" type="button" id="button">Add activity</button>
+</div>
+<script>
+     $(document).ready(function () {
+        $("#button").click(function () {
+            $('#abc').append('<tr></tr>');
+            var table = $('#abc').children();
+            table.append('<td> <label>Originator Name</label></td><td> <select><option>Nabiha</option><option>Anns</option><option>Zohaib</option></select></td><td style="width:200px;"><input type="checkbox"/>Input </td><td><label>Back State</label></td><td><select><option>Nabiha</option><option>Anns</option><option>Zohaib</option></select></td><td><label>Due Date</label></td><td><input type="date"/></td> ');
+
+        });
+    });
+
+</script>
+        
+
+
+   <div class="col-6 col-sm-6">
+    <table id="abc" class="table table-striped"  >
+      
+            <tr id="row" >
+            <td> <label>Originator Name</label></td>
+               <td> <select "><option>Nabiha</option><option>Anns</option><option>Zohaib</option></select></td>
+
+                <td style="width:200px;">  <input type="checkbox"/>Input </td>           
+                    
+               
+            
+           <td><label>Back State</label></td>
+                <td><select><option>Nabiha</option><option>Anns</option><option>Zohaib</option></select></td>
+          
+                
+            
+                <td><label>Due Date</label></td>
+                <td><input type="date"/></td>
+           
+        </tr>
+
+    </table>
+       
+<input  class="btn btn-info" type="submit" value="Save"/>
+                                               
+</div>
+
+
+
+@Html.Partial("Footer")

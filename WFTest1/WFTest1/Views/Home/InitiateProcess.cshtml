@@ -1,47 +1,118 @@
 ﻿@{
     ViewBag.Title = "InitiateProcess";
 }
+<style>
+
+    button {
+    width:140px;
+    }
+    .abc a {
+        color:white;
+    }
+
+</style>
 
  @Html.Partial("Menu") 
 
- <div class="col-xs-12 col-sm-9">
-          <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-          </p>
-          <pre style="background-color:deepskyblue;"> <h5> InitiateProcess </h5></pre>
-
-          <div class="row">
-            <div class="col-6 col-sm-6 col-lg-12">
-          <table class="table table-striped">  
-        <thead>  
-          <tr>  
-            <th>Process Name</th>  
-              <th> </th>
-            <th>Initiat</th>             
-          </tr>  
-        </thead>  
-        <tbody>  
-          <tr>  
-            <td>Hiring Process</td>  
-              <td></td>  
-            <td><button type="button" class="btn btn-primary">Initiat This Process</button></td>  
-              </tr>  
-          <tr>  
-            <td>Buying Parts</td>  
-              <td></td> 
-            <td><button type="button" class="btn btn-primary">Initiat This Process</button></td>   
-          </tr>  
-          <tr>  
-             <td>Incident Process</td>  
-              <td></td> 
-             <td><button type="button" class="btn btn-primary">Initiat This Process</button></td>  
-          </tr>  
-        </tbody>  
-      </table>  
-
-
-
-            </div><!--/span-->       
-          </div><!--/row-->
-        </div><!--/span-->
- @Html.Partial("Footer") 
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Proccesses</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-8">
+                   
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Process Table
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped abc">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Proccess Name</th>
+                                                    <th>Desing Process</th>
+                                                    <th>Initiate Proccess</th>
+                                                    <th>Edit Proccess</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Hiring</td>
+                                                    <td><button type="button" class="btn btn-success"><a href="/Home/Designer">Design</a></button></td>
+                                                    <td><button type="button" class="btn btn-primary">Start</button></td>
+                                                    <td><button type="button" class="btn btn-info">Edit</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Incident</td>
+                                                    <td><button type="button" class="btn btn-success"><a href="/Home/Designer">Design</a></button></td>
+                                                    <td><button type="button" class="btn btn-primary">Start</button></td>
+                                                    <td><button type="button" class="btn btn-info">Edit</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Registration</td>
+                                                    <td><button type="button" class="btn btn-success"><a href="/Home/Designer">Design</a></button></td>
+                                                    <td><button type="button" class="btn btn-primary">Start</button></td>
+                                                    <td><button type="button" class="btn btn-info">Edit</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Resigning</td>
+                                                    <td><button type="button" class="btn btn-success"><a href="/Home/Designer">Design</a></button></td>
+                                                    <td><button type="button" class="btn btn-primary">Start</button></td>
+                                                    <td><button type="button" class="btn btn-info">Edit</button></td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-8">
+                                    <div id="morris-bar-chart"></div>
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                   
+                </div>
+                <!-- /.col-lg-8 -->
+             
+            </div>
+            <!-- /.row -->
+        </div>

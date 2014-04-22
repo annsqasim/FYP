@@ -62,7 +62,52 @@ namespace WFTest1.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult temp()
+        {
+            return View();
+        }
+        public ActionResult RoleInformation()
+        {
+            return View();
+        }
+        public ActionResult Change_Request()
+        {
+            return View();
+        }
+        public ActionResult UserIndex()
+        {
+            return View();
+        }
+        public ActionResult UserInitiateProcess()
+        {
+            return View();
+        }
+        public ActionResult UserInitiatedWorkflows()
+        {
+            return View();
+        }
+        public ActionResult UserWorklfowRecoeds()
+        {
+            return View();
+        }
+        public ActionResult Monitoring()
+        {
+            return View();
+        }
+        public ActionResult Requistion_Authorization()
+        {
+            return View();
+        }
+        public ActionResult RMR()
+        {
+            return View();
+        }
+
+        public ActionResult Designer()
+        {
+            return View();
+        }
         //[HttpPost]
 
         //[ValidateAntiForgeryToken]

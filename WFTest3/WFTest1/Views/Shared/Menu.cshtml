@@ -1,0 +1,166 @@
+﻿@using WFTest1.Helpers
+<script type="text/javascript">
+    
+   function ClearHistory()
+{
+     var backlen = history.length;
+     history.go(-backlen);
+     window.location.href = loggedOutPageUrl
+}
+
+ //function DisableBackButton() {
+ //    window.history.forward()
+ //}
+ //   DisableBackButton();
+ //   window.onload = DisableBackButton;
+ //   window.onpageshow = function(evt) { if (evt.persisted) DisableBackButton() }
+ //   window.onunload = function () { void (0) }
+
+</script>
+ 
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" style="color:red;">TCS Workflow Managment System</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right drop navbar-nav">
+                
+                
+                 <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Alert
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                         <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Alert
+                                    <span class="pull-right text-muted small">3 Hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                
+                
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+
+                       @if (Request.IsAuthenticated) {
+                        <text>
+  
+                            @using (Html.BeginForm("LogingOff", "Account", null, FormMethod.Post, new { id = "logoutForm" })) {
+                                @Html.AntiForgeryToken()
+                                 <li><i class="fa fa-user fa-fw"></i>@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })
+                                 </li>
+                                 <li class="divider"></li>
+                                 <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                 </li>
+                                 }
+                        </text>
+                         }
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            
+      
+      
+      
+      <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                      
+                        <li>
+                            <a href="/Home/index "><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Process<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Home/InitiateProcess"> Design Proccess</a>
+                                </li>
+                                <li>
+                                    <a href="/Home/InitiatedWorkflows">  Running Process</a>
+                                </li>
+                                 <li>
+                                    <a href="/Home/WorkflowRecords">   Complete Process</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                       
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms<span class="fa arrow"></span></a>
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Forms/Change_Request">Change Request</a>
+                                </li>
+                                 <li>
+                                    <a href="/Forms/Monitoring">Monitoring</a>
+                                </li>
+                                 <li>
+                                    <a href="/Forms/Requistion_Authorization">Requistion Authorization</a>
+                                </li>
+                                 <li>
+                                    <a href="/Forms/RMR">Receiving/Movement/Removal</a>
+                                </li>
+                                 
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Role <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Home/RoleInformation">Role Information</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/Home/User">User Registeration</a>
+                                </li>
+                                <li>
+                                    <a href="#">User Information</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>

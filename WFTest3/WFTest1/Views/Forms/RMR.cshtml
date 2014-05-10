@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "RMR";
+}
+@Html.Partial("Menu")
+
+
+
+
+     <div id="page-wrapper">
+            <div class="row">
+                <h1 class="page-header">Information Asset Receiving/Movement/Removal Form</h1>
+                </div>
+   
+    <table class="table table-striped">
+    <tr>
+    <td >
+        <label ID="PassID"   style="text-align: center">PassID</label></td>
+      <td>  <input type="text" ID="TextBox1" class="form-control"  /></td>
+    </tr>
+
+    <tr>
+     <td >  <label ID="Date"  >Date</label></td> 
+      <td>  <input type="date" ID="TextBox2" class="form-control" /></td> 
+    </tr>    
+
+   <tr>
+    <td >   <label ID="Time"  >Time</label></td> 
+       <td> <input type="time" ID="TextBox3" class="form-control"   /></td>
+    </tr>
+
+    <tr>
+      <td >  <label ID="OwnerName"  >Owner Name</label></td>
+       <td> <input type="text" ID="TextBox4" class="form-control"  /></td>
+    </tr>
+
+    <tr>
+       <td > <label ID="Designation"  >Designation</label></td>
+        <td><input type="text" ID="TextBox5" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+       <td > <label ID="Department"  >Department</label></td>
+        <td><select ID="DropDownList1" class="form-control"  Width="181px"></select></td>
+        </tr>
+
+        <tr>
+        <td >
+            <label ID="Authorized"  >Is authorized to:</label></td>
+            <td>
+                <input type="checkbox" ID="CheckBox1"  />Asset Movement<b>(temporary)</b><br />
+                <input type="checkbox" ID="CheckBox2"  />Receiving<br />
+                <input type="checkbox" ID="CheckBox3"   />Removal<b> (Asset removal pass to be filled and record)</b>
+             </td>
+        </tr>
+        <tr>
+        <td ><label ID="AssetID"  >TCS PS Asset ID</label></td>
+        <td><input type="text" ID="TextBox6" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+        <td ><label ID="ManufacturerSrNo"  >Manufacturer Sr. No.</label></td>
+        <td><input type="text" ID="TextBox7" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+       <td > <label ID="MakeModel"  >Make/Mode</label></td>
+       <td><input type="text" ID="TextBox8" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+       <td > <label ID="Details"  >Asset Details</label></td>
+       <td> <textarea class="form-control" ID="TextBox9" ></textarea></td>
+        </tr>
+
+        <tr>
+        <td ><label ID="Quantity"  >Quantity</label></td>
+       <td> <input type="text" ID="TextBox10" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+        <td ><label ID="Purpose"  >Purpose</label></td>
+        <td><textarea class="form-control" ID="TextBox11"  ></textarea></td>
+        </tr>
+
+        <tr>
+        <td >
+            <label ID="rmr"  >Asset receiving/removal/movement date</label></td>
+            <td>
+                <input type="text" ID="TextBox13" class="form-control"  TextMode="Date" /></td>
+        </tr>
+
+        <tr>
+        <td >
+            <label ID="ReturnDate"  >Tentative date of return of the asset (if this is asset movement)</label></td>
+            <td>
+                <input type="date" ID="TextBox14" class="form-control"  /></td>
+        </tr>
+
+        <tr>
+        <td ><label ID="Remarks"  >Remarks</label></td>
+        <td><textarea class="form-control" ID="TextBox12"  ></textarea></td>
+        </tr>
+     </table>  
+     
+       
+        <br /><br />     
+        
+        
+       <input type="button" class="btn btn-info" id="Button1"  value="Sumbit" style="text-align:right"/>
+    </div>
+

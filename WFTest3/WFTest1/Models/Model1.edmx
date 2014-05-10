@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TCSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TCSModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="TCSModel.Store.Activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AddmissionInstance" EntityType="TCSModel.Store.AddmissionInstance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Form" EntityType="TCSModel.Store.Form" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Form_Divsion" EntityType="TCSModel.Store.Form_Divsion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Monitering" EntityType="TCSModel.Store.Monitering" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pending" EntityType="TCSModel.Store.Pending" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="TCSModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="TCSModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="TCSModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="TCSModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="TCSModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="TCSModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AddmissionInstance_Form" Association="TCSModel.Store.FK_AddmissionInstance_Form">
+            <End Role="Form" EntitySet="Form" />
+            <End Role="AddmissionInstance" EntitySet="AddmissionInstance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Form_Divsion_Form" Association="TCSModel.Store.FK_Form_Divsion_Form">
+            <End Role="Form" EntitySet="Form" />
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Form_Divsion_webpages_Roles" Association="TCSModel.Store.FK_Form_Divsion_webpages_Roles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monitering_Form" Association="TCSModel.Store.FK_Monitering_Form">
+            <End Role="Form" EntitySet="Form" />
+            <End Role="Monitering" EntitySet="Monitering" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monitering_Form_Divsion" Association="TCSModel.Store.FK_Monitering_Form_Divsion">
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+            <End Role="Monitering" EntitySet="Monitering" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pending_Form" Association="TCSModel.Store.FK_Pending_Form">
+            <End Role="Form" EntitySet="Form" />
+            <End Role="Pending" EntitySet="Pending" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pending_Form_Divsion" Association="TCSModel.Store.FK_Pending_Form_Divsion">
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+            <End Role="Pending" EntitySet="Pending" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Input" Type="bit" Nullable="false" />
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="BackState" Type="int" />
+        </EntityType>
+        <EntityType Name="AddmissionInstance">
+          <Key>
+            <PropertyRef Name="AddmissionId" />
+          </Key>
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="AddmissionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApproveBy" Type="bit" />
+          <Property Name="Remark" Type="nchar" MaxLength="10" />
+          <Property Name="Approve" Type="bit" />
+        </EntityType>
+        <EntityType Name="Form">
+          <Key>
+            <PropertyRef Name="formID" />
+          </Key>
+          <Property Name="formID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="formName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Form_Divsion">
+          <Key>
+            <PropertyRef Name="FD_ID" />
+          </Key>
+          <Property Name="FD_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Monitering">
+          <Key>
+            <PropertyRef Name="MoniteringId" />
+          </Key>
+          <Property Name="MoniteringId" Type="int" Nullable="false" />
+          <Property Name="InstanceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FD_Id" Type="int" Nullable="false" />
+          <Property Name="FormId" Type="int" Nullable="false" />
+          <Property Name="CheckIn" Type="date" />
+          <Property Name="CheckOut" Type="date" />
+        </EntityType>
+        <EntityType Name="Pending">
+          <Key>
+            <PropertyRef Name="PId" />
+          </Key>
+          <Property Name="PId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FD_ID" Type="int" Nullable="false" />
+          <Property Name="InstanceId" Type="int" Nullable="false" />
+          <Property Name="FormId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" />
+          <Property Name="contact" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AddmissionInstance_Form">
+          <End Role="Form" Type="TCSModel.Store.Form" Multiplicity="1" />
+          <End Role="AddmissionInstance" Type="TCSModel.Store.AddmissionInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="AddmissionInstance">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Form_Divsion_Form">
+          <End Role="Form" Type="TCSModel.Store.Form" Multiplicity="1" />
+          <End Role="Form_Divsion" Type="TCSModel.Store.Form_Divsion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Form_Divsion">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Form_Divsion_webpages_Roles">
+          <End Role="webpages_Roles" Type="TCSModel.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="Form_Divsion" Type="TCSModel.Store.Form_Divsion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Form_Divsion">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monitering_Form">
+          <End Role="Form" Type="TCSModel.Store.Form" Multiplicity="1" />
+          <End Role="Monitering" Type="TCSModel.Store.Monitering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Monitering">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monitering_Form_Divsion">
+          <End Role="Form_Divsion" Type="TCSModel.Store.Form_Divsion" Multiplicity="1" />
+          <End Role="Monitering" Type="TCSModel.Store.Monitering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form_Divsion">
+              <PropertyRef Name="FD_ID" />
+            </Principal>
+            <Dependent Role="Monitering">
+              <PropertyRef Name="FD_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pending_Form">
+          <End Role="Form" Type="TCSModel.Store.Form" Multiplicity="1" />
+          <End Role="Pending" Type="TCSModel.Store.Pending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Pending">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pending_Form_Divsion">
+          <End Role="Form_Divsion" Type="TCSModel.Store.Form_Divsion" Multiplicity="1" />
+          <End Role="Pending" Type="TCSModel.Store.Pending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form_Divsion">
+              <PropertyRef Name="FD_ID" />
+            </Principal>
+            <Dependent Role="Pending">
+              <PropertyRef Name="FD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TCSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TCSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="TCSModel.Activity" />
+          <EntitySet Name="AddmissionInstances" EntityType="TCSModel.AddmissionInstance" />
+          <EntitySet Name="Forms" EntityType="TCSModel.Form" />
+          <EntitySet Name="Form_Divsion" EntityType="TCSModel.Form_Divsion" />
+          <EntitySet Name="Moniterings" EntityType="TCSModel.Monitering" />
+          <EntitySet Name="Pendings" EntityType="TCSModel.Pending" />
+          <EntitySet Name="sysdiagrams" EntityType="TCSModel.sysdiagram" />
+          <EntitySet Name="UserProfiles" EntityType="TCSModel.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="TCSModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="TCSModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="TCSModel.webpages_Roles" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="TCSModel.webpages_UsersInRoles" />
+          <AssociationSet Name="FK_AddmissionInstance_Form" Association="TCSModel.FK_AddmissionInstance_Form">
+            <End Role="Form" EntitySet="Forms" />
+            <End Role="AddmissionInstance" EntitySet="AddmissionInstances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Form_Divsion_Form" Association="TCSModel.FK_Form_Divsion_Form">
+            <End Role="Form" EntitySet="Forms" />
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monitering_Form" Association="TCSModel.FK_Monitering_Form">
+            <End Role="Form" EntitySet="Forms" />
+            <End Role="Monitering" EntitySet="Moniterings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pending_Form" Association="TCSModel.FK_Pending_Form">
+            <End Role="Form" EntitySet="Forms" />
+            <End Role="Pending" EntitySet="Pendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Form_Divsion_webpages_Roles" Association="TCSModel.FK_Form_Divsion_webpages_Roles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Monitering_Form_Divsion" Association="TCSModel.FK_Monitering_Form_Divsion">
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+            <End Role="Monitering" EntitySet="Moniterings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pending_Form_Divsion" Association="TCSModel.FK_Pending_Form_Divsion">
+            <End Role="Form_Divsion" EntitySet="Form_Divsion" />
+            <End Role="Pending" EntitySet="Pendings" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Input" Type="Boolean" Nullable="false" />
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BackState" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AddmissionInstance">
+          <Key>
+            <PropertyRef Name="AddmissionId" />
+          </Key>
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="AddmissionId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApproveBy" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Approve" Type="Boolean" />
+          <NavigationProperty Name="Form" Relationship="TCSModel.FK_AddmissionInstance_Form" FromRole="AddmissionInstance" ToRole="Form" />
+        </EntityType>
+        <EntityType Name="Form">
+          <Key>
+            <PropertyRef Name="formID" />
+          </Key>
+          <Property Name="formID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="formName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="AddmissionInstances" Relationship="TCSModel.FK_AddmissionInstance_Form" FromRole="Form" ToRole="AddmissionInstance" />
+          <NavigationProperty Name="Form_Divsion" Relationship="TCSModel.FK_Form_Divsion_Form" FromRole="Form" ToRole="Form_Divsion" />
+          <NavigationProperty Name="Moniterings" Relationship="TCSModel.FK_Monitering_Form" FromRole="Form" ToRole="Monitering" />
+          <NavigationProperty Name="Pendings" Relationship="TCSModel.FK_Pending_Form" FromRole="Form" ToRole="Pending" />
+        </EntityType>
+        <EntityType Name="Form_Divsion">
+          <Key>
+            <PropertyRef Name="FD_ID" />
+          </Key>
+          <Property Name="FD_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Form" Relationship="TCSModel.FK_Form_Divsion_Form" FromRole="Form_Divsion" ToRole="Form" />
+          <NavigationProperty Name="webpages_Roles" Relationship="TCSModel.FK_Form_Divsion_webpages_Roles" FromRole="Form_Divsion" ToRole="webpages_Roles" />
+          <NavigationProperty Name="Moniterings" Relationship="TCSModel.FK_Monitering_Form_Divsion" FromRole="Form_Divsion" ToRole="Monitering" />
+          <NavigationProperty Name="Pendings" Relationship="TCSModel.FK_Pending_Form_Divsion" FromRole="Form_Divsion" ToRole="Pending" />
+        </EntityType>
+        <EntityType Name="Monitering">
+          <Key>
+            <PropertyRef Name="MoniteringId" />
+          </Key>
+          <Property Name="MoniteringId" Type="Int32" Nullable="false" />
+          <Property Name="InstanceId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FD_Id" Type="Int32" Nullable="false" />
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <Property Name="CheckIn" Type="DateTime" Precision="0" />
+          <Property Name="CheckOut" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Form" Relationship="TCSModel.FK_Monitering_Form" FromRole="Monitering" ToRole="Form" />
+          <NavigationProperty Name="Form_Divsion" Relationship="TCSModel.FK_Monitering_Form_Divsion" FromRole="Monitering" ToRole="Form_Divsion" />
+        </EntityType>
+        <EntityType Name="Pending">
+          <Key>
+            <PropertyRef Name="PId" />
+          </Key>
+          <Property Name="PId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FD_ID" Type="Int32" Nullable="false" />
+          <Property Name="InstanceId" Type="Int32" Nullable="false" />
+          <Property Name="FormId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Form" Relationship="TCSModel.FK_Pending_Form" FromRole="Pending" ToRole="Form" />
+          <NavigationProperty Name="Form_Divsion" Relationship="TCSModel.FK_Pending_Form_Divsion" FromRole="Pending" ToRole="Form_Divsion" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="contact" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Form_Divsion" Relationship="TCSModel.FK_Form_Divsion_webpages_Roles" FromRole="webpages_Roles" ToRole="Form_Divsion" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AddmissionInstance_Form">
+          <End Role="Form" Type="TCSModel.Form" Multiplicity="1" />
+          <End Role="AddmissionInstance" Type="TCSModel.AddmissionInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="AddmissionInstance">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Form_Divsion_Form">
+          <End Role="Form" Type="TCSModel.Form" Multiplicity="1" />
+          <End Role="Form_Divsion" Type="TCSModel.Form_Divsion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Form_Divsion">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monitering_Form">
+          <End Role="Form" Type="TCSModel.Form" Multiplicity="1" />
+          <End Role="Monitering" Type="TCSModel.Monitering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Monitering">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pending_Form">
+          <End Role="Form" Type="TCSModel.Form" Multiplicity="1" />
+          <End Role="Pending" Type="TCSModel.Pending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="Pending">
+              <PropertyRef Name="FormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Form_Divsion_webpages_Roles">
+          <End Role="webpages_Roles" Type="TCSModel.webpages_Roles" Multiplicity="1" />
+          <End Role="Form_Divsion" Type="TCSModel.Form_Divsion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Form_Divsion">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Monitering_Form_Divsion">
+          <End Role="Form_Divsion" Type="TCSModel.Form_Divsion" Multiplicity="1" />
+          <End Role="Monitering" Type="TCSModel.Monitering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form_Divsion">
+              <PropertyRef Name="FD_ID" />
+            </Principal>
+            <Dependent Role="Monitering">
+              <PropertyRef Name="FD_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pending_Form_Divsion">
+          <End Role="Form_Divsion" Type="TCSModel.Form_Divsion" Multiplicity="1" />
+          <End Role="Pending" Type="TCSModel.Pending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Form_Divsion">
+              <PropertyRef Name="FD_ID" />
+            </Principal>
+            <Dependent Role="Pending">
+              <PropertyRef Name="FD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TCSModelStoreContainer" CdmEntityContainer="TCSEntities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="TCSModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="Input" ColumnName="Input" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="BackState" ColumnName="BackState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddmissionInstances">
+            <EntityTypeMapping TypeName="TCSModel.AddmissionInstance">
+              <MappingFragment StoreEntitySet="AddmissionInstance">
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+                <ScalarProperty Name="AddmissionId" ColumnName="AddmissionId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Approve" ColumnName="Approve" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forms">
+            <EntityTypeMapping TypeName="TCSModel.Form">
+              <MappingFragment StoreEntitySet="Form">
+                <ScalarProperty Name="formID" ColumnName="formID" />
+                <ScalarProperty Name="formName" ColumnName="formName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Form_Divsion">
+            <EntityTypeMapping TypeName="TCSModel.Form_Divsion">
+              <MappingFragment StoreEntitySet="Form_Divsion">
+                <ScalarProperty Name="FD_ID" ColumnName="FD_ID" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moniterings">
+            <EntityTypeMapping TypeName="TCSModel.Monitering">
+              <MappingFragment StoreEntitySet="Monitering">
+                <ScalarProperty Name="MoniteringId" ColumnName="MoniteringId" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="FD_Id" ColumnName="FD_Id" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+                <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+                <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pendings">
+            <EntityTypeMapping TypeName="TCSModel.Pending">
+              <MappingFragment StoreEntitySet="Pending">
+                <ScalarProperty Name="PId" ColumnName="PId" />
+                <ScalarProperty Name="FD_ID" ColumnName="FD_ID" />
+                <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+                <ScalarProperty Name="FormId" ColumnName="FormId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TCSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="TCSModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="TCSModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="TCSModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="TCSModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_UsersInRoles">
+            <EntityTypeMapping TypeName="TCSModel.webpages_UsersInRoles">
+              <MappingFragment StoreEntitySet="webpages_UsersInRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

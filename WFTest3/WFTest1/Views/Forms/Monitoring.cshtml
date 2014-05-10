@@ -1,0 +1,364 @@
+﻿@{
+    ViewBag.Title = "Monitoring";
+}
+@Html.Partial("Menu")
+<style>
+    textarea
+    {
+        width: 75%;
+    }
+
+    </style>
+
+
+
+
+ 
+     <div id="page-wrapper">
+            <div class="row">
+                <h1 class="page-header">Daily Floor Monitoting Checklist</h1>
+                </div>
+   
+        <table class="table table-striped" >
+            <tr>
+                <td></td>
+                <td >
+                <label ID="Activity_Date"  >Activity Date</label></td>
+                <td>  <input type="date" ID="TextBox1"  /></td>
+                 <td></td>
+        <td></td>
+    
+            </tr>
+  
+    <tr>
+    <td></td>
+
+        <th>Check List Items</th>
+        <th>(Yes/No)</th>
+        <th>Remarks</th>
+    </tr>
+
+           
+    <tr>
+      <td></td>
+       
+        <td><b>Stationary Storage Area</b></td>
+        <td></td>
+        <td></td>
+    
+      
+
+      
+    </tr>
+
+    <tr>
+    <td style="width:auto;">1.</td>
+    <td style="width:300px;">Is good housekeeping practiced in work area (Is it free of garbage, burnable, and difficulties? Are walkway maintained?)?
+    </td>
+    <td  style="width:200px;">   
+
+       <input type="radio" Name="select" title="yes"  />Yes
+        <input type="radio" Name="select" title="No" />No
+
+    </td>
+
+    <td style="width:450px;">
+            <textarea class="form-control" ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>2.</td>
+    <td>Is storage adequately supported/stable to avoid tipping/failing?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton3"  Name="select" />Yes
+        <input type="radio" ID="RadioButton4" Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>3.</td>
+    <td >Is there at least two (2) feet clearance between stacked materials and ceiling light?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton5"  Name="select" />Yes
+        <input type="radio" ID="RadioButton6"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>4.</td>
+    <td >Is room temperature stable at 22 Calcius
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton7"  Name="select" />Yes
+        <input type="radio" ID="RadioButton8"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>5.</td>
+    <td >Is relative humidity (RH) is stable around 45%
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton9"  Name="select" />Yes
+        <input type="radio" ID="RadioButton10"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>6.</td>
+    <td >Is fire detectors enabled
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton11"  Name="select" />Yes
+        <input type="radio" ID="RadioButton12"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>7.</td>
+    <td >Is there any nearby sources of ignitions, papers, volatile fluids, hazardous materials, etc.
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton13"  Name="select" />Yes
+        <input type="radio" ID="RadioButton14"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>8.</td>
+    <td >Is there any nearby sources of water leaks from the roof, pipes, or neighboring rooms
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton15"  Name="select" />Yes
+        <input type="radio" ID="RadioButton16"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+    <tr>
+    <td>9.</td>
+    <td >Are “NO SMOKING” signs posted and being enforced in computer rooms?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton17"  Name="select" />Yes
+        <input type="radio" ID="RadioButton18"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea><br /><br /></td>
+    </tr>
+
+     <tr>
+         <td></td>
+   <td><b>Electricity</b></td>
+          <td></td>
+        <td></td>
+    
+   
+    </tr>
+
+      <tr>
+    <td>10.</td>
+    <td >Is there at least three (3) feet clearance in front of electrical panels/breaker boxes?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton19"  Name="select" />Yes
+        <input type="radio" ID="RadioButton20"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>11.</td>
+    <td >Is the area free of extension cords?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton21"  Name="select" />Yes
+        <input type="radio" ID="RadioButton22"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>12.</td>
+    <td >Is all electrical equipment plugged directly into wall outlets?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton23"  Name="select" />Yes
+        <input type="radio" ID="RadioButton24"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>13.</td>
+    <td >Are switches and circuit breakers properly identified as to the service they are in and to what they control?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton25"  Name="select" />Yes
+        <input type="radio" ID="RadioButton26"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>14.</td>
+    <td >Are circuit breaker panels free of combustible materials?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton27"  Name="select" />Yes
+        <input type="radio" ID="RadioButton28"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>15.</td>
+    <td >Are covers plates in place on junction boxes to eliminate exposed wiring?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton29"  Name="select" />Yes
+        <input type="radio" ID="RadioButton30"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>16.</td>
+    <td >Are “WARNING HIGH VOLTAGE” signs installed on high voltage enclosures for systems rated 600V or over?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton31"  Name="select" />Yes
+        <input type="radio" ID="RadioButton32"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+      <tr>
+    <td>17.</td>
+    <td >Is all electrical, including light fixtures, protected from physical damage by enclosure/guards?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton33"  Name="select" />Yes
+        <input type="radio" ID="RadioButton34"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea><br /><br /></td>
+    </tr>
+
+
+       <tr>
+           <td></td>
+   <td><b>Emergency Equipment</b></td>
+    <td></td>
+        <td></td>
+    
+    </tr>
+
+         <tr>
+    <td>18.</td>
+    <td >Is emergency equipment (alarm pull boxes, fire extinguisher, etc.) accessible and not blocked by equipment?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton35"  Name="select" />Yes
+        <input type="radio" ID="RadioButton36"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>19.</td>
+    <td >Is all emergency equipment in good condition?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton37"  Name="select" />Yes
+        <input type="radio" ID="RadioButton38"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>20.</td>
+    <td >Are all self-closing doors operational?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton39"  Name="select" />Yes
+        <input type="radio" ID="RadioButton40"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>21.</td>
+    <td >Are walls and floors free of holes/penetrations?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton41"  Name="select" />Yes
+        <input type="radio" ID="RadioButton42"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>22.</td>
+    <td >Are no smoking regulations clearly posted and being followed in “NO SMOKING” areas?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton43"  Name="select" />Yes
+        <input type="radio" ID="RadioButton44"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control""  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>23.</td>
+    <td >Are fire extinguishers and signs clearly visible?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton45"  Name="select" />Yes
+        <input type="radio" ID="RadioButton46"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>24.</td>
+    <td >Are all extinguishers in place and properly mounted?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton47"  Name="select" />Yes
+        <input type="radio" ID="RadioButton48"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+         <tr>
+    <td>25.</td>
+    <td >Are all extinguishers properly inspected (monthly) and maintained (annually)?
+    </td>
+    <td >
+       <input type="radio" ID="RadioButton49"  Name="select" />Yes
+        <input type="radio" ID="RadioButton50"  Name="select"/>No</td>
+        <td>
+            <textarea class="form-control"  ></textarea></td>
+    </tr>
+
+ 
+   
+     </table>  
+     
+        
+        <br /><br />     
+        
+        
+                        <input type="button" class="btn btn-info" id="Button1"  value="Sumbit" />
+
+    </div>
+
+ 
+@Html.Partial("Footer")

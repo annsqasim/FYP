@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Info";
+}
+@Html.Partial("Menu")
+
+<h2>Information Asset Removal Pass</h2>
+
+ 
+    <div class="col-6 col-sm-6">
+    
+    <table class="table table-striped" >
+    <tr>
+    <td class="style1">
+        <label ID="PassID">PassID</label></td>
+      <td>  <input type="text" class="form-control" id="TextBox1" runat="server" "/></td>
+    </tr>
+
+    <tr>
+     <td class="style1">  <label id="Date">Asset Removal date</label></td> 
+      <td>  <input type="date"class="form-control"  id="TextBox2" runat="server" /></td> 
+    </tr>    
+
+   <tr>
+    <td class="style1">   <label id="Time">Time</label></td> 
+       <td> <input type="time" class="form-control" id="TextBox3" runat="server" /></td>
+    </tr>
+
+    <tr>
+      <td class="style1">  <label id="OwnerName">Owner Name</label></td>
+       <td> <input type="text"class="form-control" id="TextBox4" runat="server" "/></td>
+    </tr>
+
+    <tr>
+       <td class="style1"> <label id="Designation">Designation</label></td>
+        <td><input type="text" class="form-control" id="TextBox5" runat="server" "/></td>
+        </tr>
+
+        <tr>
+       <td class="style1"> <label id="Department">Department</label></td>
+        <td><select class="form-control" id="DropDownList1" runat="server" Height="21px" "></select></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label id="AssetID">TCS PS Asset ID</label></td>
+        <td><input type="text" class="form-control" ID="TextBox6" runat="server" " /></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="ManufacturerSrNo">Manufacturer Sr. No.</label></td>
+        <td><input type="text" class="form-control"id="TextBox7" runat="server" "/></td>
+        </tr>
+
+        <tr>
+       <td class="style1"> <label ID="MakeModel">Make/Mode</label></td>
+       <td><input type="text" class="form-control" ID="TextBox8" runat="server" "/></td>
+        </tr>
+
+        <tr>
+       <td class="style1"> <label ID="Details">Asset Details</label></td>
+       <td> <textarea type="text"  class="form-control" ID="TextBox9" runat="server"   ></textarea></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="Quantity">Quantity</label></td>
+       <td> <input type="text" class="form-control" ID="TextBox10" runat="server" "/></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="Reason">Removal Reason</label></td>
+        <td><textarea type="text"class="form-control"  ID="TextBox11" runat="server"></textarea></td>
+        </tr>
+
+        <tr>
+        <td class="style1"><label ID="Remarks">Remarks</label></td>
+        <td><textarea type="text"class="form-control"  ID="TextBox12" runat="server"></textarea></td>
+        </tr>
+
+        <tr>
+            <td><label ID="verification"><b>Verification at the Guard Check post:</b></label></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label ID="Checked">Package checked and verified: </label></td>
+            <td><input type="radio" ID="RadioButton1"  name="select"/>Yes<input type="radio" ID="RadioButton2" name="select" />No
+
+            </td>
+        </tr>
+     </table>  
+        
+        
+        
+        <input type="button" class="btn btn-info" id="Button1" runat="server" value="Sumbit" />
+    </div>
+
+@Html.Partial("Footer") 

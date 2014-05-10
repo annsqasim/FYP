@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WFTest1.Models.Form>
+@{
+    ViewBag.Title = "InitiateProcess";
+}
+<style>
+
+    button {
+    width:140px;
+    }
+    .abc a {
+        color:white;
+    }
+
+</style>
+
+ @Html.Partial("Menu") 
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Proccesses</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-8">
+                   
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Process Table
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" >Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped abc">
+                                            <thead>
+                                               
+                                            </thead>
+                                            <tbody>
+                                            @foreach (var item in Model) {
+                                            
+                                                <tr>
+                                                    
+                                                     <td>
+                                                        @Html.DisplayFor(modelItem => item.formID)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.formName)
+                                                    </td>
+                                                    <td>@Html.ActionLink("Designer", "Designer", new { id = item.formID }, new {@class="btn btn-success" })</td>
+                                                    <td>@Html.ActionLink("Start", "Start", new {formid=item.formID }, new {@class="btn  btn-primary" })</td>
+                                                    <td><button type="button" class="btn btn-info">Edit</button></td>
+                                                </tr>
+                                                }
+                                                
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-8">
+                                    <div id="morris-bar-chart"></div>
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                   
+                </div>
+                <!-- /.col-lg-8 -->
+             
+            </div>
+            <!-- /.row -->
+        </div>
